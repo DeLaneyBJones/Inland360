@@ -2,18 +2,20 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
-      List
+      Contents
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of data" [routerLink]= "'/' + item.path">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
       {{item.title}}
+      <!-- <ion-item [routerLink]="'/detail/' + item.id" routerDirection="forward"></ion-item> -->
       <div class="item-note" slot="end">
         {{item.note}}
       </div>
